@@ -14,7 +14,7 @@
             <?php 
             $admins = getAll('admins');
             if(!$admins){
-                echo <'h4>Something Went Wrong!</h4>'
+                echo '<h4>Something Went Wrong!</h4>';
                 return false;
             }
             if(mysqli_num_rows($admins) > 0)
