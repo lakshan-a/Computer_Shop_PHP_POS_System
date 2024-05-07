@@ -89,6 +89,7 @@ function getAll($tableName, $status = NULL){
 
 }
 
+//GetById data using this function
 function getById($tableName, $id){
 
     global $conn;
