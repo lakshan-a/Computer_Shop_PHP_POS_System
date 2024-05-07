@@ -10,7 +10,7 @@ require 'dbcon.php';
 function validate($inputData){
 
     global $conn;
-    $validatedData = mysql_real_escape_string($conn, $inputData);
+    $validatedData = mysqli_real_escape_string($conn, $inputData);
     return trim($validatedData);
 }
  
@@ -23,8 +23,9 @@ function redirect($url, $status){
 
 // Display message or status after any process
 function alertMessage(){
+
     if(isset($_SESSION['status'])){
-        each '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
          <h6>'.$_SESSION['status'].'</h6>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
@@ -67,7 +68,7 @@ function update($tableName ,$id ,$data){
     $finalUpdateData = substr(trim($updateDataString),0,-1);
 
     $query = "UPDATE $table SET $finalUpdateData WHERE id='$id'";
-    $result mysqli_query($conn,$query);
+    $result = mysqli_query($conn,$query);
     return $result;
 
 }
@@ -89,7 +90,7 @@ function getAll($tableName, $status = NULL){
 
 }
 
-//GetById data using this function
+//GetAll data using this function
 function getById($tableName, $id){
 
     global $conn;
