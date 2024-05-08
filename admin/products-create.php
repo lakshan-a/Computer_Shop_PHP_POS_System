@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <?php alertMessage(); ?>
-        <form action="code.php" method= "POST">
+        <form action="code.php" method= "POST" enctype="multipart/form-data">
 
             <div class="row">
                 <div class="col-md-12 mb-3">
