@@ -161,7 +161,7 @@ if(isset($_POST['saveProduct'])){
         $filename = time().'.'.$image_ext;
 
         move_uploaded_file($_FILES['image']['tmp_name'], $path."/".$filename);
-        $finalImage = "assets/uploads/products".$filename;
+        $finalImage = "assets/uploads/products/".$filename;
 
     }else{
         $finalImage = '';

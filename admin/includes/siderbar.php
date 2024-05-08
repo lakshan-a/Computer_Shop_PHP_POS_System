@@ -13,7 +13,7 @@
                 <a class="nav-link collapsed" href="#" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                     Categories
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -27,7 +27,7 @@
                 <a class="nav-link collapsed" href="#" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
                     Product
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -45,7 +45,7 @@
                     data-bs-target="#collapseAdmins" 
                     aria-expanded="false" aria-controls="collapseAdmins">
 
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-user "></i></div>
                     Admins/Staff
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
