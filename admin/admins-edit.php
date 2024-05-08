@@ -12,28 +12,25 @@
 
         <form action="code.php" method= "POST">
 
-            <?php 
+            <?php
                 if(isset($_GET['id'])){
-
                     if($_GET['id'] != ''){
-                        $adminId = $_GET['id'];
 
+                        $adminId = $_GET['id'];
                     }else{
                         echo '<h5>No Id Found</h5>';
                         return false;
                     }
-
                 }else{
-                    echo '<h5>No Id given in params</h5>';
+                    echo '<h5>No Id Given in Params</h5>';
                     return false;
                 }
 
                 $adminData = getById('admins', $adminId);
                 if($adminData){
-
                     if($adminData['status'] == 200){
                         ?>
-                        <input type="text" name="adminId" value="<?= $adminData['data']['id']; ?>">
+                        <input type="hidden" name="adminId" value="<?= $adminData['data']['id']; ?>">
 
                         <div class="row">
                             <div class="col-md-12 mb-3">
@@ -46,7 +43,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="">Password *</label>
-                                <input type="password" name="password"  class="form-control">
+                                <input type="password" name="password" class="form-control">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="">Phone Number *</label>
@@ -54,22 +51,26 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="">Is Ban</label>
-                                <input type="checkbox" name="is_ban" <?= $adminData['data']['is_ban'] == true ? 'checked':''; ?> style="width:30px;,height:30px;">
+                                <br/>
+                                <input type="checkbox" name="is_ban" <?= $adminData['data']['is_ban'] == true ? 'checked':'';  ?> style="width:30px;,height:30px;">
                             </div>
                             <div class="col-md-12 mb-3 text-end">
-                                <button type="submit" name="updateAdmin" class="btn btn-primary">Save</button>
+                                <button type="submit" name="updateAdmin" class="btn btn-primary">Update</button>
                             </div>
                         </div>
                         <?php
-
-                    }else{
+                    }
+                    else
+                    {
                         echo '<h5>'.$adminData['message'].'</h5>';
                     }
-
-                }else{
-                    echo 'Something Went Wrong';
+                }
+                else
+                {
+                    echo 'Somthing Went Wrong';
                     return false;
                 }
+
             ?>
 
             
