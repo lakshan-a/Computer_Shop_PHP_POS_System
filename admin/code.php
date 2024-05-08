@@ -57,6 +57,15 @@ if(isset($_POST['updateAdmin'])){
     $phone = validate($_POST['phone']);
     $is_ban = isset($_POST['is_ban']) == true ? 1:0;
 
+
+    // $EmailCheckQuery = "SELECT * FROM admins WHERE email='$email' id!='$adminId'";
+    // $chheckResult = mysqli_query($conn, $EmailCheckQuery);
+    // if($chheckResult){
+    //     if(mysqli_num_rows($chheckResult) > 0){
+    //         redirect('admins-edit.php?id='.$adminId,'Email Already used by another user');
+    //     }
+    // }
+
     if($password != ''){
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     }else{
