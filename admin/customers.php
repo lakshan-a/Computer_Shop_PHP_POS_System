@@ -54,7 +54,13 @@
                             </td>
                             <td>
                                 <a href="customers-edit.php?id=<?= $item['id']; ?> " class="btn btn-success btn-sm">Edit</a>
-                                <a href="customers-delete.php?id=<?= $item['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="customers-delete.php?id=<?= $item['id']; ?>" 
+                                    class="btn btn-danger btn-sm"
+                                    
+                                onclick = "return confirm('Are you aure your went to delete this data?')" 
+                                >
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                         <?php endforeach;?>
