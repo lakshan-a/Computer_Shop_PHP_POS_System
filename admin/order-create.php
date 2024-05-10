@@ -82,10 +82,11 @@
                                 <td><?= $item['name']; ?></td>
                                 <td><?= $item['price']; ?></td>
                                 <td>
-                                    <div class="input-group">
-                                        <button class="input-group-text">-</button>
+                                    <div class="input-group qtyBox">
+                                        <input type="hidden" value="<?= $item['product_id'];?>" class="prodId" />
+                                        <button class="input-group-text decrement">-</button>
                                         <input type="text" value="<?= $item['quantity']; ?>" class="qty quantityInput" style=" width: 50px !important; padding: 6px 3px; text-align:center ; border:1px solid #cfb1b1 ; outline:0 ; margin-right: 1px;" />
-                                        <button class="input-group-text">+</button>
+                                        <button class="input-group-text increment">+</button>
                                     </div>
                                 </td>
                                 <td><?= number_format($item['price'] * $item['quantity'], 0); ?></td>
