@@ -52,7 +52,7 @@
         <div class="card-header">
             <h4 class="mb-0">Products</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body" id="productArea">
             <?php
 
             if(isset($_SESSION['productItems'])){
@@ -60,7 +60,7 @@
                 $sessionProducts = $_SESSION['productItems'];
 
                 ?>
-                <div class="table-responsive mb-3">
+                <div class="table-responsive mb-3" id="productContent">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>

@@ -1,5 +1,7 @@
 $(document).ready(function () {
     
+    alertify.set('notifier','position', 'top-right');
+    
     $(document).on('click', '.increment', function (){
 
         var $quantityInput = $(this).closest('.qtyBox').find('.qty');
@@ -38,10 +40,12 @@ $(document).ready(function () {
             },
             success: function (response){
                 var res = JSON.parse(response);
+
                 if(res.status == 200){
-                    window.location.reload();
+                    $('#productArea').load(' #productContent');
                     alertify.success(res.message);
                 }else{
+                    $('#productArea').load(' #productContent');
                     alertify.error(res.message);
                 }
             }
