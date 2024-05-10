@@ -9,6 +9,7 @@ $(document).ready(function () {
         if(!isNaN(currentValue)){
             var qtyVal = currentValue + 1;
             $quantityInput.val(qtyVal);
+            quantityIncDec(productId, qtyVal);
         }
     });
 
@@ -21,7 +22,31 @@ $(document).ready(function () {
         if(!isNaN(currentValue) && currentValue > 1){
             var qtyVal = currentValue - 1;
             $quantityInput.val(qtyVal);
+            quantityIncDec(productId, qtyVal);
         }
     });
+
+    function quantityIncDec(prodId, qty){
+
+        $.ajax({
+            type: "POST",
+            url: "orders-code.php",
+            data: {
+                'productIncDec': true,
+                'product_Id': prodId,
+                'quantity':qty
+            },
+            success: function(response){
+                var res = JSON.parse(response);
+                if(response.status == 200){
+                    window.location.reload();
+                    alertify.success(res.message);
+                }else{
+                    alertify.error(res.message);
+                }
+            }
+        });
+
+    }
 
 });

@@ -72,4 +72,41 @@ if(isset($_POST['addItem'])){
     }
 }
 
+if(isset($_POST['productIncDec'])){
+
+    $productId = validate($_POST['product_id']);
+    $quantity = validate($_POST['quantity']);
+
+    $flag= false;
+    foreach($_SESSION['productItems'] as $item){
+        if($item['product_id'] == $productId){
+
+            $flag = true;
+            $_SESSION['productItems'][$key]['quantity'] = $quantity;
+        }
+    }
+
+    if($flag){
+
+        $response = [
+            'status' => 200,
+            'status_type' => 'success',
+            'message' => 'Quantity Updated'
+        ];
+        echo json_encode($response);
+        return;
+
+    }else{
+
+        $response = [
+            'status' => 200,
+            'status_type' => 'success',
+            'message' => 'Quantity Updated'
+        ];
+        echo json_encode($response);
+        return;
+
+    }
+}
+
 ?>
