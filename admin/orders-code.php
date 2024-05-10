@@ -110,9 +110,11 @@ if(isset($_POST['proceedToPlaceBtn'])){
     if($checkCustomer){
 
         if(mysqli_num_rows($checkCustomer) > 0){
+
             $_SESSION['invoice_no'] = "INV-" .rand(111111,999999);
             $_SESSION['cphone'] = $phone; 
             $_SESSION['payment_mode'] = $payment_mode;
+
             jsonResponse(200,'success','Customer Found');
 
         }else{
@@ -120,12 +122,13 @@ if(isset($_POST['proceedToPlaceBtn'])){
             $_SESSION['cphone'] = $phone; 
             jsonResponse(404,'warning','Customer Not Found');
 
-        }else{
-
-            jsonResponse(500,'error','Something Went Worng');
-
         }
+
+    }else{
+        jsonResponse(500,'error','Something Went Worng');
+
     }
+
 }
 
 ?>

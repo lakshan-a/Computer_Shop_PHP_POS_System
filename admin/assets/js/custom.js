@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     $(document).on('click', '.proceedToPlace', function () {
 
-        console.log('proceedToPlace');
+        // console.log('proceedToPlace');
 
         var cphone = $('#cphone').val();
         var payment_mode = $('#payment_mode').val();
@@ -76,6 +76,49 @@ $(document).ready(function () {
 
         }
 
+        var data = {
+            'proceedToPlaceBtn': true,
+            'cphone' : cphone,
+            'payment_mode': payment_mode,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "orders-code.php",
+            data: data,
+            success: function (response){
+
+                var res = JSON.parse(response);
+                if(res.status == 200){
+                    window.location.href = "order-summary.php";
+
+                }else if(res.status == 404){
+
+                    swal(res.message, res.message, res.status_type, {
+                        buttons:{
+                            catch:{
+                                text: "Add Customer",
+                                value: "catch"
+                            },
+                            cancel: "Cancel"
+                        }
+                    })
+                    .then((value) => {
+                        switch(value){
+
+                            case "catch":
+                                $('#addCustomerModel').modal('show');
+                                // console.log('Pop the customer add modal');
+                                break;
+                            default:
+                        }
+                    });
+
+                }else{
+                    swal(res.message, res.message, res.status_type);
+                }
+            }
+        });      
 
 
     });
