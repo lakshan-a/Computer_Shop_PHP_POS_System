@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(document).on('click', '.increment', function (){
 
         var $quantityInput = $(this).closest('.qtyBox').find('.qty');
-        var productId = $(this).closest('.qtyBox').find('.prodId');
+        var productId = $(this).closest('.qtyBox').find('.prodId').val();
         var currentValue = parseInt($quantityInput.val());
 
         if(!isNaN(currentValue)){
@@ -16,7 +16,7 @@ $(document).ready(function () {
     $(document).on('click', '.decrement', function (){
 
         var $quantityInput = $(this).closest('.qtyBox').find('.qty');
-        var productId = $(this).closest('.qtyBox').find('.prodId');
+        var productId = $(this).closest('.qtyBox').find('.prodId').val();
         var currentValue = parseInt($quantityInput.val());
 
         if(!isNaN(currentValue) && currentValue > 1){
@@ -33,12 +33,12 @@ $(document).ready(function () {
             url: "orders-code.php",
             data: {
                 'productIncDec': true,
-                'product_Id': prodId,
+                'product_id': prodId,
                 'quantity':qty
             },
-            success: function(response){
+            success: function (response){
                 var res = JSON.parse(response);
-                if(response.status == 200){
+                if(res.status == 200){
                     window.location.reload();
                     alertify.success(res.message);
                 }else{

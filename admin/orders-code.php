@@ -78,7 +78,7 @@ if(isset($_POST['productIncDec'])){
     $quantity = validate($_POST['quantity']);
 
     $flag= false;
-    foreach($_SESSION['productItems'] as $item){
+    foreach($_SESSION['productItems'] as $key => $item){
         if($item['product_id'] == $productId){
 
             $flag = true;
@@ -88,23 +88,12 @@ if(isset($_POST['productIncDec'])){
 
     if($flag){
 
-        $response = [
-            'status' => 200,
-            'status_type' => 'success',
-            'message' => 'Quantity Updated'
-        ];
-        echo json_encode($response);
-        return;
+        jsonResponse(200, 'success', 'Quantity Updated');
 
     }else{
 
-        $response = [
-            'status' => 200,
-            'status_type' => 'success',
-            'message' => 'Quantity Updated'
-        ];
-        echo json_encode($response);
-        return;
+        jsonResponse(500, 'error', 'Something Went Wrong. Please re-fresh');
+
 
     }
 }
