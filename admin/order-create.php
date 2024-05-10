@@ -47,6 +47,9 @@
 
         </div>
     </div>
+    <?php 
+    print_r($_SESSION['productItemIds']);
+    ?>
 </div>
 
 <?php include('includes/footer.php'); ?>
