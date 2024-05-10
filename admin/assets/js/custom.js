@@ -53,4 +53,31 @@ $(document).ready(function () {
 
     }
 
+    // proceed to place order button click
+
+    $(document).on('click', '.proceedToPlace', function () {
+
+        console.log('proceedToPlace');
+
+        var cphone = $('#cphone').val();
+        var payment_mode = $('#payment_mode').val();
+
+        if(payment_mode == ''){
+
+            swal("Select Payment Mode", "Select your payment mode","warning");
+            return false;
+
+        }
+
+        if(cphone == '' && !$.isNumeric(cphone)){
+
+            swal("Enter Phone Number", "Enter Valid Phone Number","warning");
+            return false;
+
+        }
+
+
+
+    });
+
 });
