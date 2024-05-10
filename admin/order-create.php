@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="">Select Product</label>
-                    <select name="product_id" class="form-select">
+                    <select name="product_id" class="form-select  mySelect2">
                         <option value="">-- Select Product --</option> 
                         <?php
                         $products = getAll('products');

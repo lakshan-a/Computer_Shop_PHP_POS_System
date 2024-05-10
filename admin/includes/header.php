@@ -16,6 +16,11 @@ require 'authentication.php';
     <link href="assets/css/styles.css" rel="stylesheet" />
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    
 </head>
 <body class="sb-nav-fixed">
 
