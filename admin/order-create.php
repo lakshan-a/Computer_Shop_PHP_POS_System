@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-header">
             <h4 class="mb-0">Products</h4>
         </div>
@@ -58,6 +58,10 @@
             if(isset($_SESSION['productItems'])){
 
                 $sessionProducts = $_SESSION['productItems'];
+                if(empty($sessionProducts)){
+                    unset($_SESSION['productItemIds']);
+                    unset($_SESSION['productItems']);
+                }
 
                 ?>
                 <div class="table-responsive mb-3" id="productContent">
@@ -98,6 +102,29 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="mt-2">
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Select Payment Mode</label>
+                            <select id="payment_mode" class="form-select">
+                            <option value="">-- Select Payment --</option>
+                                <option value="Cash Payment">Cash Payment</option>
+                                <option value="Online Payment">Online Payment</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Enter Customer Phone Number</label>
+                            <input type="number" id="cphone" class="form-control" value="" />
+                        </div>
+                        <div class="col-md-4">
+                            <br/>
+                            <button type="button" class="btn btn-warning w-100 proceedToPlace">Proceed to place Order</button>
+                        </div>
+                    </div>
+                </div>
+
                 <?php
 
             }else{
