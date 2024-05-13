@@ -131,4 +131,31 @@ if(isset($_POST['proceedToPlaceBtn'])){
 
 }
 
+if(isset($_POST['saveCustomerBtn'])){
+    
+    $name = validate($_POST['name']);
+    $phone = validate($_POST['phone']);
+    $email = validate($_POST['email']);
+
+    if($name != '' && $phone != ''){
+
+        $data = [
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+
+        ];
+        $result = insert('customers', $data);
+        
+        if($result){
+            jsonResponse(200,'success','Customer Created Successfully');
+        }else{
+            jsonResponse(500,'error','Something Went Worng');
+        }
+
+    }else{
+        jsonResponse(422,'warning','Plaese fill required fields');
+    }
+    
+}
 ?>
