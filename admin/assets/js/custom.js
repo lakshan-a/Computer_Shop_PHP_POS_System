@@ -105,6 +105,7 @@ $(document).ready(function () {
                             switch (value) {
 
                                 case "catch":
+                                    $('#c_phone').val(cphone);
                                     $('#addCustomerModel').modal('show');
                                     // console.log('Pop the customer add modal');
                                     break;
