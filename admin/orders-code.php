@@ -188,12 +188,12 @@ if(isset($_POST['saveOrder'])){
 
         $data = [
             'customer_id' => $customerData['id'],
-            'tracking_no' => rand(111111,999999),
+            'tracking_no' => rand(11111,99999),
             'invoice_no' => $invoice_no,
             'total_amount' => $totalAmount,
-            'order_date' => date('Y-m-d');
+            'order_date' => date('Y-m-d'),
             'order_status' => 'booked',
-            'pament_mode' => $payment_mode,
+            'payment_mode' => $payment_mode,
             'order_places_by_id' => $order_places_by_id
          ];
 
@@ -226,6 +226,17 @@ if(isset($_POST['saveOrder'])){
             $updateProductQty = update('products',$productId, $dataUpdate);
 
         }
+
+        unset($_SESSION['productItemIds']);
+        unset($_SESSION['productItems']);
+        unset($_SESSION['cphone']);
+        unset($_SESSION['payment_mode']);
+        unset($_SESSION['invoice_no']);
+
+        jsonResponse(200, 'success', 'Order Placed Successfully!');
+
+    }else{
+        jsonResponse(404, 'warning', 'No Customer Found !');
     }
 }
 
