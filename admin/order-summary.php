@@ -73,11 +73,11 @@ if(!isset($_SESSION['productItems'])){
                                     <table style="width:100%" cellpadding="5">
                                         <thead>
                                             <tr>
-                                                <th align="start" style="border-bottom: 1px solid #ccc;" width="5%">ID</th>
-                                                <th align="start" style="border-bottom: 1px solid #ccc;">Product Name</th>
-                                                <th align="start" style="border-bottom: 1px solid #ccc;" width="10%">Price</th>
-                                                <th align="start" style="border-bottom: 1px solid #ccc;" width="10%">Quantity</th>
-                                                <th align="start" style="border-bottom: 1px solid #ccc;" width="15%">Total Price</th>
+                                                <th align ="start" style="border-bottom: 1px solid #ccc;" width="5%">ID</th>
+                                                <th align ="start" style="border-bottom: 1px solid #ccc;">Product Name</th>
+                                                <th align ="start" style="border-bottom: 1px solid #ccc;" width="10%">Price</th>
+                                                <th align ="start" style="border-bottom: 1px solid #ccc;" width="10%">Quantity</th>
+                                                <th align ="start" style="border-bottom: 1px solid #ccc;" width="15%">Total Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -116,6 +116,13 @@ if(!isset($_SESSION['productItems'])){
                         ?>
 
                     </div>
+
+                    
+                    <?php if(isset($_SESSION['productItems'])) : ?>
+                    <div class="mt-4 text-end">
+                        <button type="button" class="btn btn-primary px-4 mx-1" id="saveOrder">Save</button>
+                    </div>
+                    <?php endif; ?>
 
                 </div>
             </div>
