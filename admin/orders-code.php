@@ -22,7 +22,7 @@ if(isset($_POST['addItem'])){
         if(mysqli_num_rows($checkProduct) > 0){
             $row = mysqli_fetch_assoc($checkProduct);
             if($row['quantity'] < $quantity){
-                edirect('order-create.php','Only'.$row['quantity'].'quantity available!');
+                redirect('order-create.php','Only'.$row['quantity'].'quantity available!');
             }
 
             $productData = [
@@ -162,9 +162,9 @@ if(isset($_POST['saveCustomerBtn'])){
 
 if(isset($_POST['saveOrder'])){
 
-    $phone = validate($_POST['cphone']);
-    $invoice_no = validate($_POST['invoice_no']);
-    $payment_mode = validate($_POST['payment_mode']);
+    $phone = validate($_SESSION['cphone']);
+    $invoice_no = validate($_SESSION['invoice_no']);
+    $payment_mode = validate($_SESSION['payment_mode']);
     $order_places_by_id = $_SESSION['loggedInUser']['user_id'];
 
     $checkCustomer = mysqli_query($conn, "SELECT * FROM customers WHERE phone='$phone' LIMIT 1");
@@ -213,10 +213,10 @@ if(isset($_POST['saveOrder'])){
                 'price' => $price,
                 'quantity' => $quantity,
             ];
-            $orderItemQuery = insere('order_items', $dataOrderItem);
+            $orderItemQuery = insert('order_items', $dataOrderItem);
 
             //Checking for the books quantity and decreasing quantity and making total Quantity
-            $checkProductQuantityQuary = mysqli_query($conn, "SELECT 8 FROM products WHERE id='$productId'");
+            $checkProductQuantityQuary = mysqli_query($conn, "SELECT * FROM products WHERE id='$productId'");
             $productQtyData = mysqli_fetch_assoc($checkProductQuantityQuary);
             $totalProductQuantity = $productQtyData['quantity'] - $quantity;
 

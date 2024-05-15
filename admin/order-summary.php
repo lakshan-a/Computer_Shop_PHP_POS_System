@@ -8,6 +8,24 @@ if(!isset($_SESSION['productItems'])){
 }
 ?>
 
+<div class="modal fade" id="orderSuccessModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+      <div class="mb-3 p-4">
+        <h5 id="orderPlaceSuccessMessage"></h5>
+      </div>
+        <a href="orders.php" class="btn btn-secondary">Close</a>
+        <button href="button" class="btn btn-danger">Print</button>
+        <button type="button" class="btn btn-primary ">Download PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="container-fluid px-4">
     <div class="row">
         <div class="col-md-12">
