@@ -76,7 +76,7 @@
                             <div class="col-md-4 mb-3">
                                 <label for="">Image *</label>
                                 <input type="file" name="image"  class="form-control">
-                                <img src="../<?= $product['data']['image']; ?>" style="width:40px: height:40px;" alt="Img"/>
+                                <img src="../<?= $product['data']['image']; ?>" style="width: 170px;" alt="Img"/>
                             </div>
                             <div class="col-md-6">
                                 <label>Statusn (UnChecked=Visible, Checked=Hidden)</label>
