@@ -52,7 +52,7 @@ if(!isset($_SESSION['productItems'])){
                                     <table style="width: 100%; margin-bottom:20px;" >
                                         <tbody>
                                             <tr>
-                                                <td style="text-align: center;" cospan="2">
+                                                <td style="text-align: center;" colspan="2">
                                                     <h4 style="font-size: 23px; line-height: 30px; margin: 2px; padding: 0;">Company XYZ</h4>
                                                     <p style="font-size: 16px; line-height: 24px; margin: 2px; padding: 0;">#555,1st street,3rd cross</p>
                                                     <p style="font-size: 16px; line-height: 24px; margin: 2px; padding: 0;">company xyz pvt lty.</p>
