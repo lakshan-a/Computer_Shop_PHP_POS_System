@@ -4,6 +4,7 @@
     <div class="card mt-4 shadow-sm">
         <div class="card-header">
             <h4 class="mb-0">Orders View
+                <a href="orders-view-print.php?track=<?= $_GET['track']?>" class="btn btn-info mx-2 btn-sm float-end">Print</a>
                 <a href="orders.php" class="btn btn-danger mx-2 btn-sm float-end">Back</a>
             </h4>
         </div>
